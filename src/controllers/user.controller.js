@@ -51,7 +51,7 @@ async function unfollowUserController(req, res){
        const followerUsername=req.user.username
        const followeeUsername = req.params.username
 
-       const isUserFollowing= followModel.findOne({
+       const isUserFollowing= await followModel.findOne({
         follower:followerUsername,
         followee:followeeUsername
        })
@@ -62,7 +62,21 @@ async function unfollowUserController(req, res){
         })
        }
 
+          const isFolloweeExists = await userModel.findOne({
+        username:followeeUsername
+    })
+
+    if(!isFolloweeExists){
+        return res.status(404).json({
+          message:"User you are trying to follow , does not exist!"  
+        })
+    }
+
        await followModel.findByIdAndDelete(isUserFollowing._id)
+
+        return res.status(200).json({
+    message: `You unfollowed ${followeeUsername}`
+  })
 }
 
 module.exports={
