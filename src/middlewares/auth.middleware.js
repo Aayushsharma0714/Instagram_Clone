@@ -21,4 +21,8 @@ async function identifyUser(req , res , next){
     next()
 }
 
+
+/**
+ * req.user passed to next controller from here.
+ */
 module.exports = identifyUser
