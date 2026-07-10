@@ -1,8 +1,11 @@
 import React from 'react'
-import { BrowserRouter ,Routes , Route} from 'react-router'
+//import { BrowserRouter ,Routes , Route} from 'react-router'
+import {createBrowserRouter} from 'react-router' 
 import Login from './features/auth/pages/Login'
 import Register from './features/auth/pages/Register'
 
+/*  
+ // Older Way of defining routes using BrowserRouter, Routes, and Route components
 
 const AppRoutes = () => {
   return (
@@ -17,3 +20,20 @@ const AppRoutes = () => {
 }
 
 export default AppRoutes
+
+*/
+
+export const router = createBrowserRouter([
+  {
+    path:'/',
+    element:<h2>Welcome to the App</h2>
+  },
+  {
+    path:'/login',
+    element:<Login/>
+  },
+  {
+    path:'/register',
+    element:<Register/>
+  }
+])

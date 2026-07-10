@@ -35,7 +35,7 @@ async function handleSubmit(e){
          name='password'
           placeholder="Password" />
          
-         <button type="submit">Register</button>
+         <button  className="button primary-button" type="submit">Register</button>
        </form>
        <p>Have a account? <Link className='toggleAuthForm' to="/login">Login</Link></p>
      </div>

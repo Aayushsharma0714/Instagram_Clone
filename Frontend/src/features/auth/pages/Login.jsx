@@ -10,7 +10,7 @@ const Login = () =>{
   const [username ,setUsername] = useState('')
   const [password ,setPassword] = useState('')
   
-  const {handleLogin , loading} = useAuth();
+  const {user , handleLogin , loading} = useAuth();
   const navigate = useNavigate();
 
    if(loading){
@@ -39,7 +39,7 @@ const Login = () =>{
          type="password"
           name='password'
           placeholder="Password" />
-         <button type="submit">Login</button>
+         <button className='button primary-button' type="submit">Login</button>
        </form>
               <p>Don't have an account? <Link className='toggleAuthForm' to="/register">Register</Link></p>
      </div>
